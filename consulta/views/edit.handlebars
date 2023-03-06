@@ -1,0 +1,41 @@
+<h1>Editar Dados de Consultas</h1>
+    <hr>
+    <form action="/prod/updateprod" method="POST">
+        
+        <div class="form-control">
+            <input type="hidden" name="id_consulta" id="id_consulta" value="{{prod.id_consulta}}">
+            <label for="id_consulta">Id da consulta:</label>
+        <!--    <input type="number" name="id_consulta" placeholder="" value="{{prod.id_consulta}}"> -->
+        </div>
+
+        <div class="form-control">
+            <label for="crm">CRM:</label>
+            <input type="number" name="crm" placeholder="Digite o seu CRM" value="{{prod.crm}}">
+        </div>
+        <div class="form-control">
+            <label for="especialidade">Especialidade:</label>
+            <input type="text" name="especialidade" placeholder="Digite a sua especialidade" value="{{prod.especialidade}}">
+        </div>
+        <div class="form-control">
+            <label for="cpf_cliente">CPF do Cliente:</label>
+            <input type="text" name="cpf_cliente" placeholder="Digite o CPF do cliente" value="{{prod.cpf_cliente}}">
+        </div>
+        <div class="form-control">
+            <label for="data">Data:</label>
+            <input type="date" name="data" placeholder="" value="{{prod.data}}">
+        </div>
+        <div class="form-control">
+            <label for="hora">Hora:</label>
+            <input type="time" name="hora" placeholder="" value="{{prod.hora}}">
+        </div>
+        <div class="form-control">
+            <label for="motivo_procura">Motivo da procura:</label>
+            <input type="text" name="motivo_procura" placeholder="Motivo da procura" value="{{prod.motivo_procura}}">
+        </div>
+        <div class="form-control">
+            <label for="observacao_medico">Observação Médica:</label>
+            <input type="text" name="observacao_medico" placeholder="Observação" value="{{prod.observacao_medico}}">
+        </div>
+    
+        <input type="submit" value="Editar">
+    </form>
