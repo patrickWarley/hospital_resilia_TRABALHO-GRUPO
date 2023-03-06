@@ -1,0 +1,13 @@
+
+
+<h1>Medicos</h1>
+
+<div class="med-container">
+    {{#each listar}}
+     
+    <strong> #{{this.id}} </strong> -  
+    <a href="/med/{{this.id}}">{{nome}}</a> <a>crm: {{crm}}</a><a> especialidade: {{especialidade}}</a> <a>telefone: {{Telefone}} </a> <a>endereço: {{endereco}}</a>  <br>
+
+    {{/each}}
+
+</div>
