@@ -1,0 +1,28 @@
+edit.handlebars
+
+<h1>Editar Pacientes</h1>
+    <hr>
+    <form action="/paci/updatepacientes" method="POST">
+     <div class="form-control">
+            <input type="hidden" name="id" id="id" value="{{paci.id}}">
+        </div>
+        <div class="form-control">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" placeholder="Digite seu nome" value="{{paci.nome}}">
+        </div>
+        <div class="form-control">
+            <label for="cpf">cpf:</label>
+            <input type="text" name="cpf" placeholder="Digite seu cpf" value="{{paci.cpf}}">
+        </div>
+
+         <div class="form-control">
+            <label for="idade">idade:</label>
+            <input type="number" name="idade" placeholder="Digite a sua idade" value="{{paci.idade}}">
+        </div>
+         <div class="form-control">
+            <label for="endereco">endereco:</label>
+            <input type="text" name="endereco" placeholder="Digite seu endereço" value="{{paci.endereco}}">
+        </div>
+    
+        <input type="submit" value="Editar">
+    </form>

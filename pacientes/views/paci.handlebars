@@ -1,0 +1,13 @@
+consulta ao banco de dados (CRUD)
+
+<h1>Pacientes</h1>
+
+<div class="paci-container">
+    {{#each listar}}
+     
+     <strong> #{{this.id}} </strong>
+    <a href="/paci/{{this.id}}">{{nome}}</a> - Consultas {{consultas}}  <br>
+
+    {{/each}}
+
+</div>

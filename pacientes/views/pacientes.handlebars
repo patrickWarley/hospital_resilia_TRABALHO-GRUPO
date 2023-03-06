@@ -1,0 +1,12 @@
+
+<h1>Pacientes</h1>
+    {{#each listar}}  
+         
+<h1> {{this.nome}} </h1>
+
+<p>Paciente {{this.id}} {{this.idade}}{{this.endereco}}{{this.cpf}} </p>
+
+<a href="/paci/edit/{{this.id}}">Editar</a>
+<a href="/paci/remove/{{this.id}}" >excluir</a>
+
+{{/each}}
