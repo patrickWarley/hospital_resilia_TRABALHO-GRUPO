@@ -8,6 +8,7 @@ const mysql = require("mysql");
 const exphbs = require("express-handlebars");
 
 const Unidades = require("./unidades/index");
+const Consultas = require("./consulta/index");
 
 const port = 3000;
 
@@ -22,5 +23,6 @@ app.use(
 );
 
 app.use("/unidades", Unidades);
+app.use("/consulta", Consultas);
 
 app.listen(port);
