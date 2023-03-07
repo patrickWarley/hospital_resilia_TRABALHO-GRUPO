@@ -9,6 +9,7 @@ const exphbs = require("express-handlebars");
 
 const Unidades = require("./unidades/index");
 const Consultas = require("./consulta/index");
+const Pacientes = require("./pacientes/index");
 
 const port = 3000;
 
@@ -24,5 +25,6 @@ app.use(
 
 app.use("/unidades", Unidades);
 app.use("/consulta", Consultas);
+app.use("/pacientes", Pacientes);
 
 app.listen(port);

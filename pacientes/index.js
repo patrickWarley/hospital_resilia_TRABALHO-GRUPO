@@ -1,188 +1,148 @@
-// importar express
-var express = require('express');
+const express = require("express");
+const mysql = require("mysql");
+//aqui eu uso router para criar um modulo que vai lidat exclusivamente com as unidades
+const router = express.Router();
 
-// importar mysql
-const mysql = require('mysql');
-
-// importar o handlebars
-const exphbs = require('express-handlebars');
-
-// variável para definir o express
-var app  = express();
-var port = 3000
-
-// configuração handlebars
-
-app.engine('handlebars', exphbs.engine());
-app.set('view engine', 'handlebars');
-
-
-//rotas 
-
-//rota raiz
-app.get('/', (req, res) => {
-  res.render('home', { layout: false })
+const conn = mysql.createConnection({
+  host: "localhost",
+  port: "3307",
+  user: "root",
+  password: "",
+  database: "hospital_resilia",
 });
 
-//express url
-app.use(
-  express.urlencoded({
-      extended: true
-}) 
-)
-
-//rota para inserir dados
-app.post('/paci/insertpaci', (req, res) => {
-  const nome = req.body.nome
-  const cpf = req.body.cpf
-  const idade = req.body.idade
-  const endereco = req.body.endereco 
-
-  const sql = `INSERT INTO pacientes (nome, cpf, idade, endereco) VALUES ('${nome}', '${cpf}', '${idade}', '${endereco}')`
-
-  conn.query(sql, function(err){
-      if (err){
-          console.log(err)
-      }
-
-      res.redirect('/')
-  })
-})
-//rota de consulta geral
-app.get('/paci', (req, res) => {
-  const sql = 'SELECT * FROM pacientes'
-
-  conn.query(sql, function(err, data){
-      if(err){
-          console.log(err)
-          return
-      }
-  
-      const listar = data
-      
-      console.log(listar)
-
-      res.render('pacientes', { layout: false, listar })
-
-  })
-})
-
-// consulta um registo pelo id (paci.handlebars)
-app.get('/paci/:id', (req, res) => {
-  const id = req.params.id
-  
-  const sql = `SELECT * FROM pacientes WHERE id = ${id}`
-
-  conn.query(sql, function(err, data){
-      if(err){
-          console.log(err)
-          return
-      }
-
-      const listar = data
-      res.render('pacientes', {  layout: false, listar } )
-
-  })
-})
-
-//rota do buscar
-app.get('/busca', (req, res) => {
-  res.render('busca', { layout: false })
-})
-//rota busc para exibir o resultado do buscar
-app.post('/busc/', (req, res) => {
-  const id = req.body.id
-  const sql = `SELECT * FROM pacientes WHERE id = ${id}`
-
-  conn.query(sql, function(err, data){
-     if(err){
-     console.log(err)
-      return
-    }
-     const listar = data
-     res.render('pacientes', {  layout: false, listar } )
-     })
-    })
-    //pegando para editar registro
-app.get('/paci/edit/:id', (req, res) => {
-    
-  const id = req.params.id
-
-  const sql = `SELECT * FROM pacientes where id = ${id}`
-
-  conn.query(sql, function(err, data){
-      if(err){
-          console.log(err)
-          return
-      }
-
-      const paci = data[0]
-      res.render('edit', { layout: false, paci  } )
-
-  })
-})
-
-//rota de edicao do registro com post
-app.post('/paci/updatepacientes', (req, res) => {
-    const {id,nome,cpf,idade,endereco} = req.body
-
-    const sql = `UPDATE pacientes SET nome = '${nome}', cpf = '${cpf}' , idade = '${idade}', endereco = '${endereco}' WHERE id = '${id}'` 
-
-    conn.query(sql, function(err) {
-        if(err){
-            console.log(err)
-            return
-        }
-
-        res.redirect(`/paci/${id}`)
-    })
-
-})
-
-  //rota para deletar um registro
-app.get('/paci/remove/:id', (req, res) => {
-  const id = req.params.id
-
-  const sql = `DELETE FROM pacientes WHERE id = '${id}'`
-
-  conn.query(sql, function(err){
-      if(err){
-          console.log(err)
-          return
-      }
-
-      res.redirect('/paci')
-  })
-})
-// conexao banco de dados
-const conn = mysql.createConnection({
-  host: 'localhost',    
-  port: '3307', //porta servidor xampp
-  user:'root',
-  password: '',
-  database: 'projetofnl' //nome do banco de dados criado no mysql
-}
-);
-
-//verificar se o banco de dados apresentou erro
-conn.connect(function(err) {
-  if(err){
-      console.log(err)
+conn.connect(function (err) {
+  if (err) {
+    console.log(err);
   }
 
-  console.log('Conectado com sucesso!')
- 
+  console.log("Conectado com sucesso!");
 });
 
-//configurar o servidor
+//rota raiz
+router.get("/", (req, res) => {
+  res.render("pacientes/home", { layout: false });
+});
 
-app.listen(port, () => {
-  console.log(`App rodando na porta ${port}`)
-})
+//rota para inserir dados
+router.post("/paci/insertpaci", (req, res) => {
 
-//instalar my-sql - npm install mysql
-//nome do banco projetofnl
-//tabela: produto(nome, cpf, idade, endereco)
+  const {nome, cpf, idade, endereco} = req.body;
+  const sql = `INSERT INTO pacientes (nome, cpf, idade, endereco) VALUES ('${nome}', '${cpf}', '${idade}', '${endereco}')`;
+
+  conn.query(sql, function (err) {
+    if (err) {
+      console.log(err);
+    }
+
+    res.redirect("/pacientes");
+  });
+});
+
+//rota de consulta geral
+router.get("/paci", (req, res) => {
+  const sql = "SELECT * FROM pacientes";
+
+  conn.query(sql, function (err, data) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    const listar = data;
+
+    console.log(listar);
+
+    res.render("pacientes/pacientes", { layout: false, listar });
+  });
+});
+
+//rota do buscar
+router.get("/busca", (req, res) => {
+  res.render("pacientes/busca", { layout: false });
+});
+
+//rota busc para exibir o resultado do buscar
+router.post("/busc/", (req, res) => {
+  const id = req.body.id;
+  const sql = `SELECT * FROM pacientes WHERE id = ${id}`;
+
+  conn.query(sql, function (err, data) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    const listar = data;
+    res.render("pacientes/pacientes", { layout: false, listar });
+  });
+});
+
+//rota de edicao do registro com post
+router.post("/paci/updatepacientes", (req, res) => {
+  const { id, nome, cpf, idade, endereco } = req.body;
+
+  const sql = `UPDATE pacientes SET nome = '${nome}', cpf = '${cpf}' , idade = '${idade}', endereco = '${endereco}' WHERE id = '${id}'`;
+
+  conn.query(sql, function (err) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    res.redirect(`/pacientes/paci/${id}`);
+  });
+});
+
+//rota para deletar um registro
+router.get("/paci/remove/:id", (req, res) => {
+  const id = req.params.id;
+
+  const sql = `DELETE FROM pacientes WHERE id = '${id}'`;
+
+  conn.query(sql, function (err) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    res.redirect("/pacientes/paci");
+  });
+});
 
 
+// consulta um registo pelo id (paci.handlebars)
+router.get("/paci/:id", (req, res) => {
+  const id = req.params.id;
 
+  const sql = `SELECT * FROM pacientes WHERE id = ${id}`;
+
+  conn.query(sql, function (err, data) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    const listar = data;
+    res.render("pacientes/pacientes", { layout: false, listar });
+  });
+});
+
+
+//pegando para editar registro
+router.get("/paci/edit/:id", (req, res) => {
+  const id = req.params.id;
+
+  const sql = `SELECT * FROM pacientes where id = ${id}`;
+
+  conn.query(sql, function (err, data) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    const paci = data[0];
+    res.render("pacientes/edit", { layout: false, paci });
+  });
+});
+
+module.exports = router;
