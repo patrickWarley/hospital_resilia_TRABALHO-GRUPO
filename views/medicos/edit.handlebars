@@ -1,0 +1,35 @@
+<h1>Editar Produto</h1>
+    <hr>
+    <form action="/medicos/med/updatemed" method="POST">
+        <div class="form-control">
+            <input type="hidden" name="id" id="id" value="{{med.id}}">
+        </div>
+
+        <div class="form-control">
+        <label for="nome">Nome:</label>
+            <input type="text" name="nome" placeholder="Digite o nome do medico" value="{{med.nome}}">
+            </div>
+            
+        <div class="form-control">
+            <label for="crm">Crm:</label>
+            <input type="text" name="crm" placeholder="Digite sua crm" value="{{med.crm}}">
+        </div>
+
+         <div class="form-control">
+            <label for="especialidade">Especialidade:</label>
+            <input type="text" name="especialidade" placeholder="Digite sua especialidade" value="{{med.especialidade}}">
+        </div>
+
+        <div class="form-control">
+            <label for="telefone">Telefone:</label>
+            <input type="number" name="telefone" placeholder="Digite seu telefone" value="{{med.telefone}}">
+        </div>
+
+        <div class="form-control">
+            <label for="endereco">Endereço:</label>
+            <input type="text" name="endereco" placeholder="Digite seu endereçp" value="{{med.endereco}}">
+        </div>
+        
+    
+        <input type="submit" value="Editar">
+    </form>
