@@ -6,7 +6,6 @@ const mysql = require("mysql");
 
 // importar o handlebars
 const exphbs = require("express-handlebars");
-
 const Unidades = require("./services/unidades/index");
 const Consultas = require("./services/consulta/index");
 const Pacientes = require("./services/pacientes/index");
@@ -18,6 +17,7 @@ const app = express();
 
 app.engine("handlebars", exphbs.engine());
 app.set("view engine", "handlebars");
+app.set("view options", {layout:'main'});
 app.use(
   express.urlencoded({
     extended: true,
@@ -30,7 +30,7 @@ app.use("/pacientes", Pacientes);
 app.use("/medicos", Medicos);
 
 app.get('/',(req, res) =>{
-  res.render("home", { layout: false });
+  res.render("home",{layout:false});
 })
 
 app.listen(port);
