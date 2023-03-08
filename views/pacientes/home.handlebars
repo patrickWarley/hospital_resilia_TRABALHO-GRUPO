@@ -1,31 +1,31 @@
 {{> navbar}}
-<h1>Lista de pacientes</h1>
-<a href="/pacientes/paci">Clique aqui</a>
-
-<h1>Cadastro de Pacientes</h1>
-    <hr>
-    <form action="/pacientes/paci/insertpaci" method="POST">
-     <div class="form-control">
-            <label for="id">id:</label>
-            <input type="text" name="id" placeholder="Digite o id do paciente">
-        </div>
-        <div class="form-control">
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" placeholder="Digite o nome do paciente">
+<div class="container page-margin-top mb-5">
+  <div class="row">
+    <div class="col-2">{{> navPacientes}}</div>
+    <div class="col-10">
+      <h1 class="m-3">Cadastro de Pacientes</h1>
+      <hr>
+      <form action="/pacientes/paci/insertpaci" method="POST">
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input type="text" class="form-control" name="nome" placeholder="Digite o nome do paciente">
         </div>
 
-         <div class="form-control">
-            <label for="cpf">cpf:</label>
-            <input type="number" name="cpf" placeholder="Digite seu cpf">
+        <div class="form-group">
+          <label for="cpf">cpf:</label>
+          <input type="number" class="form-control" name="cpf" placeholder="Digite seu cpf">
         </div>
-        <div class="form-control">
-            <label for="idade">idade:</label>
-            <input type="number" name="idade" placeholder="Digite a sua idade">
+        <div class="form-group">
+          <label for="idade">idade:</label>
+          <input type="number" name="idade" class="form-control" placeholder="Digite a sua idade">
         </div>
-         <div class="form-control">
-            <label for="Endereco">Endereço:</label>
-            <input type="text" name="endereco" placeholder="Digite seu endereço">
+        <div class="form-group">
+          <label for="Endereco">Endereço:</label>
+          <input type="text" class="form-control" name="endereco" placeholder="Digite seu endereço">
         </div>
-        
-        <input type="submit" value="Cadastrar">
-    </form>
+
+        <input type="submit" class="btn btn-primary px-3 m-3" value="Cadastrar" />
+      </form>
+    </div>
+  </div>
+</div>

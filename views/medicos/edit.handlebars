@@ -1,35 +1,45 @@
-<h1>Editar Produto</h1>
-    <hr>
-    <form action="/medicos/med/updatemed" method="POST">
-        <div class="form-control">
-            <input type="hidden" name="id" id="id" value="{{med.id}}">
+{{> navbar}}
+<div class="container page-margin-top">
+  <div class="row">
+    <div class="col-2">{{> navMedicos}}</div>
+    <div class="col-10">
+      <h1 class="m-3">Editar Produto</h1>
+      <hr>
+      <form action="/medicos/med/updatemed" method="POST">
+        <input type="hidden" name="id" id="id" value="{{med.id}}">
+
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input type="text" class="form-control" name="nome" placeholder="Digite o nome do medico"
+            value="{{med.nome}}">
         </div>
 
-        <div class="form-control">
-        <label for="nome">Nome:</label>
-            <input type="text" name="nome" placeholder="Digite o nome do medico" value="{{med.nome}}">
-            </div>
-            
-        <div class="form-control">
-            <label for="crm">Crm:</label>
-            <input type="text" name="crm" placeholder="Digite sua crm" value="{{med.crm}}">
+        <div class="form-group">
+          <label for="crm">Crm:</label>
+          <input type="text" class="form-control" name="crm" placeholder="Digite sua crm" value="{{med.crm}}">
         </div>
 
-         <div class="form-control">
-            <label for="especialidade">Especialidade:</label>
-            <input type="text" name="especialidade" placeholder="Digite sua especialidade" value="{{med.especialidade}}">
+        <div class="form-group">
+          <label for="especialidade">Especialidade:</label>
+          <input type="text" class="form-control" name="especialidade" placeholder="Digite sua especialidade"
+            value="{{med.especialidade}}">
         </div>
 
-        <div class="form-control">
-            <label for="telefone">Telefone:</label>
-            <input type="number" name="telefone" placeholder="Digite seu telefone" value="{{med.telefone}}">
+        <div class="form-group">
+          <label for="telefone">Telefone:</label>
+          <input type="number" name="telefone" class="form-control" placeholder="Digite seu telefone"
+            value="{{med.telefone}}">
         </div>
 
-        <div class="form-control">
-            <label for="endereco">Endereço:</label>
-            <input type="text" name="endereco" placeholder="Digite seu endereçp" value="{{med.endereco}}">
+        <div class="form-group">
+          <label for="endereco">Endereço:</label>
+          <input type="text" class="form-control" name="endereco" placeholder="Digite seu endereçp"
+            value="{{med.endereco}}">
         </div>
-        
-    
-        <input type="submit" value="Editar">
-    </form>
+
+
+        <input class="btn btn-primary" type="submit" value="Editar">
+      </form>
+    </div>
+  </div>
+</div>

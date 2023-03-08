@@ -33,18 +33,17 @@ router.use(
 
 //rota para inserir dados
 router.post("/prod/insertprod", (req, res) => {
-   const {
-     id_consulta,
-     crm,
-     especialidade,
-     motivo_procura,
-     observacao_medico,
-     hora,
-     data,
-     cpf_cliente,
-   } = req.body;
+  const {
+    crm,
+    especialidade,
+    motivo_procura,
+    observacao_medico,
+    hora,
+    data,
+    cpf_cliente,
+  } = req.body;
 
-  const sql = `INSERT INTO consulta (id_consulta, crm, especialidade, cpf_cliente, data, hora, motivo_procura, observacao_medico) VALUES ('${id_consulta}', '${crm}', '${especialidade}', '${cpf_cliente}', '${data}', '${hora}', '${motivo_procura}', '${observacao_medico}')`;
+  const sql = `INSERT INTO consulta (crm, especialidade, cpf_cliente, data, hora, motivo_procura, observacao_medico) VALUES ('${crm}', '${especialidade}', '${cpf_cliente}', '${data}', '${hora}', '${motivo_procura}', '${observacao_medico}')`;
 
   conn.query(sql, function (err) {
     if (err) {
@@ -129,15 +128,15 @@ router.get("/prod/edit/:id_consulta", (req, res) => {
 
 //rota de edicao do registro com post
 router.post("/prod/updateprod", (req, res) => {
-  const{
-    id_consulta, 
+  const {
+    id_consulta,
     crm,
-    especialidade, 
-    motivo_procura, 
-    observacao_medico, 
-    hora, 
-    data, 
-    cpf_cliente} = req.body;
+    especialidade,
+    motivo_procura,
+    observacao_medico,
+    hora,
+    data,
+    cpf_cliente } = req.body;
 
   const sql = `UPDATE consulta SET crm = '${crm}', especialidade = '${especialidade}', cpf_cliente = '${cpf_cliente}', data = '${data}', hora = '${hora}', motivo_procura = '${motivo_procura}', observacao_medico = '${observacao_medico}'  WHERE id_consulta = ${id_consulta}`;
 

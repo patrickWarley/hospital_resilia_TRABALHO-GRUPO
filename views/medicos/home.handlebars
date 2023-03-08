@@ -1,39 +1,38 @@
 {{> navbar}}
-<h1>Lista de medicos</h1>
-<a href="/medicos/med">Clique aqui</a>
+<div class="container page-margin-top">
+  <div class="row">
+    <div class="col-2">{{> navMedicos}}</div>
+    <div class="col-10">
+      <h1 class="m-3">Cadastro de Médicos</h1>
+      <hr>
+      <form action="/medicos/med/insertmed" method="POST">
+        <input type="hidden" name="id" placeholder="Digite seu CRM">
 
-<h1>Cadastro de Médicos</h1>
-    <hr>
-    <form action="/medicos/med/insertmed" method="POST">
-       <div class="form-control">
-        <label for="id"></label>
-            <input type="hidden" name="id" placeholder="Digite seu CRM">
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input class="form-control" type="text" name="nome" placeholder="Digite seu nome">
         </div>
-
-        <div class="form-control">
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" placeholder="Digite seu nome">
-        </div>
-         <div class="form-control">
-        <label for="crm">crm:</label>
-            <input type="text" name="crm" placeholder="Digite seu CRM">
+        <div class="form-group">
+          <label for="crm">crm:</label>
+          <input type="text" name="crm" class="form-control" placeholder="Digite seu CRM">
         </div>
 
-        <div class="form-control">
-            <label for="especialidade">Especialidade:</label>
-            <input type="text" name="especialidade" placeholder="especialidade medica">
-        </div>
-    
-       <div class="form-control">
-            <label for="telefone">Telefone:</label>
-            <input type="number" name="telefone" placeholder="Digite seu telefone">
+        <div class="form-group">
+          <label for="especialidade">Especialidade:</label>
+          <input type="text" name="especialidade" class="form-control" placeholder="especialidade medica">
         </div>
 
-        <div class="form-control">
-            <label for="endereco">Endereço:</label>
-            <input type="text" name="endereco" placeholder="Digite seu endereço">
+        <div class="form-group">
+          <label for="telefone">Telefone:</label>
+          <input type="number" name="telefone" class="form-control" placeholder="Digite seu telefone">
         </div>
-        <input type="submit" value="Cadastrar">
-    </form>
 
-    <a href="/medicos/med">tabela</a>
+        <div class="form-group">
+          <label for="endereco">Endereço:</label>
+          <input type="text" name="endereco" class="form-control" placeholder="Digite seu endereço">
+        </div>
+        <input class="btn btn-primary mt-3 px-3" type="submit" value="Cadastrar">
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,13 +1,31 @@
-
-
-<h1>Medicos</h1>
-
-<div class="med-container">
-    {{#each listar}}
-     
-    <strong> #{{this.id}} </strong> -  
-    <a href="/medicos/med/{{this.id}}">{{nome}}</a> <a>crm: {{crm}}</a><a> especialidade: {{especialidade}}</a> <a>telefone: {{Telefone}} </a> <a>endereço: {{endereco}}</a>  <br>
-
-    {{/each}}
-
+{{> navbar}}
+<div class="container page-margin-top">
+  <div class="row">
+    <div class="col-2">{{> navMedicos}}</div>
+    <div class="col-10">
+      <h1 class="m-3"> Medicos</h1>
+      <table class="table striped">
+        <thead>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>CRM</th>
+          <th>Especialidade</th>
+          <th>Telefone</th>
+        </thead>
+        <tbody>
+          {{#each listar}}
+          <tr>
+            <td>{{this.id}}</td>
+            <td><a href="/medicos/med/{{this.id}}">{{nome}}</a></td>
+            <td>{{crm}}</td>
+            <td>{{especialidade}}</td>
+            <td>{{telefone}}</td>
+          </tr>
+          {{/each}}
+          </tr>
+        </tbody>
+    </div>
+    </table>
+  </div>
+</div>
 </div>

@@ -1,15 +1,23 @@
-<h1>Consulta:</h1>
-      
-         
-<h1> {{listarProd.id_cliente}} </h1>
+{{> navbar}}
+<div class="container page-margin-top">
+  <div class="row">
+    <div class="col-2">{{> navConsulta}}</div>
+    <div class="col-10">
+      <h1>Consulta:</h1>
 
-<p>O CPF do cliente: {{listarProd.cpf_cliente}}</p>
-<p>O CRM do Profissional: {{listarProd.crm}}</p>
-<p>A Especialidade do médico: {{listarProd.especialidade}}</p>
-<p>A data da consulta: {{listarProd.data}}</p>
-<p>A hora da consulta: {{listarProd.hora}}</p>
-<p>O motivo da procura: {{listarProd.motivo_procura}}</p>
-<p>Observações médicas: {{listarProd.cpf_cliente}}</p>
 
-<a href="/consulta/prod/edit/{{listarProd.id_consulta}}">Editar</a>
-<a href="/consulta/prod/remove/{{listarProd.id_consulta}}" >excluir</a>
+      <h1> {{listarProd.id_cliente}} </h1>
+
+      <p>O CPF do cliente: {{listarProd.cpf_cliente}}</p>
+      <p>O CRM do Profissional: {{listarProd.crm}}</p>
+      <p>A Especialidade do médico: {{listarProd.especialidade}}</p>
+      <p>A data da consulta: {{listarProd.data}}</p>
+      <p>A hora da consulta: {{listarProd.hora}}</p>
+      <p>O motivo da procura: {{listarProd.motivo_procura}}</p>
+      <p>Observações médicas: {{listarProd.cpf_cliente}}</p>
+
+      <a href="/consulta/prod/edit/{{listarProd.id_consulta}}">Editar</a>
+      <a href="/consulta/prod/remove/{{listarProd.id_consulta}}">excluir</a>
+    </div>
+  </div>
+</div>

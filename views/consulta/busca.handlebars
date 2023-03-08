@@ -1,10 +1,17 @@
+{{> navbar}}
+<div class="container page-margin-top">
+  <div class="row">
+    <div class="col-2">{{> navConsulta}}</div>
+    <div class="col-10">
+      <h1>Pesquisa de Consultas por Id</h1>
+      <hr>
+      <form action="/consulta/busc/" method="post">
 
+        <input type="text" name="id_consulta" id="id_consulta" placeholder="id_consulta">
+        <!-- para mudar de id para nome muda o name para nome :) x-->
 
-<h1>Pesquisa de Consultas por Id</h1>
-    <hr>
-    <form action="/consulta/busc/" method="post">
-        
-            <input type="text" name="id_consulta" id="id_consulta" placeholder="id_consulta"> <!-- para mudar de id para nome muda o name para nome :) x-->
-              
         <input type="submit" value="Buscar">
-    </form>
+      </form>
+    </div>
+  </div>
+</div>

@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
 //rota para inserir dados
 router.post("/paci/insertpaci", (req, res) => {
 
-  const {nome, cpf, idade, endereco} = req.body;
+  const { nome, cpf, idade, endereco } = req.body;
   const sql = `INSERT INTO pacientes (nome, cpf, idade, endereco) VALUES ('${nome}', '${cpf}', '${idade}', '${endereco}')`;
 
   conn.query(sql, function (err) {
@@ -50,8 +50,6 @@ router.get("/paci", (req, res) => {
     }
 
     const listar = data;
-
-    console.log(listar);
 
     res.render("pacientes/pacientes", { layout: false, listar });
   });

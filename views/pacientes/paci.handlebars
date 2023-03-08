@@ -1,13 +1,19 @@
-consulta ao banco de dados (CRUD)
+{{> navbar}}
+<div class="container page-margin-top mb-5">
+  <div class="row">
+    <div class="col-2">{{> navPacientes}}</div>
+    <div class="col-10">
+      <h1>Pacientes</h1>
 
-<h1>Pacientes</h1>
+      <div class="row">
+        {{#each listar}}
+        <div class="col">
+          <strong> #{{this.id}} </strong>
+          <a href="/pacientes/paci/{{this.id}}">{{this.nome}}</a><br>
+        </div>
+        {{/each}}
 
-<div class="paci-container">
-    {{#each listar}}
-     
-     <strong> #{{this.id}} </strong>
-    <a href="/pacientes/paci/{{this.id}}">{{nome}}</a> - Consultas {{consultas}}  <br>
-
-    {{/each}}
-
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,12 +1,38 @@
-
-<h1>Pacientes</h1>
-    {{#each listar}}  
-         
-<h1> {{this.nome}} </h1>
-
-<p>Paciente {{this.id}} {{this.idade}}{{this.endereco}}{{this.cpf}} </p>
-
-<a href="/pacientes/paci/edit/{{this.id}}">Editar</a>
-<a href="/pacientes/paci/remove/{{this.id}}" >excluir</a>
-
-{{/each}}
+{{> navbar}}
+<div class="container page-margin-top mb-5">
+  <div class="row">
+    <div class="col-2">{{> navPacientes}}</div>
+    <div class="col-10">
+      <h1 class="m-3">Pacientes</h1>
+      <table class="table striped">
+        <tbody>
+          <thead>
+            <tr>
+              <td>Nome</td>
+              <td>ID</td>
+              <td>Idade</td>
+              <td>Endereco</td>
+              <td>CPF</td>
+              <td></td>
+            </tr>
+          </thead>
+          {{#each listar}}
+          <tr class="">
+            <td>
+              <h5>{{this.nome}} </h5>
+            </td>
+            <td>{{this.id}}</td>
+            <td><span class="m-3">{{this.idade}}</span></td>
+            <td><span class="m-3">{{this.endereco}}</span></td>
+            <td><span class="m-3">{{this.cpf}} </span></td>
+            <td>
+              <a href="/pacientes/paci/edit/{{this.id}}">Editar</a>
+              <a href="/pacientes/paci/remove/{{this.id}}">excluir</a>
+            </td>
+            {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>

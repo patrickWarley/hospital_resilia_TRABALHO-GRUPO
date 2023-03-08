@@ -1,28 +1,37 @@
-edit.handlebars
+{{> navbar}}
+<div class="container page-margin-top mb-5">
+  <div class="row">
+    <div class="col-2">{{> navPacientes}}</div>
+    <div class="col-10">
 
-<h1>Editar Pacientes</h1>
-    <hr>
-    <form action="/pacientes/paci/updatepacientes" method="POST">
-     <div class="form-control">
-            <input type="hidden" name="id" id="id" value="{{paci.id}}">
+      <h1 class="m-3">Editar Pacientes</h1>
+      <hr>
+      <form action="/pacientes/paci/updatepacientes" method="POST">
+        <div class="form-group">
+          <input type="hidden" name="id" id="id" value="{{paci.id}}">
         </div>
-        <div class="form-control">
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" placeholder="Digite seu nome" value="{{paci.nome}}">
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input type="text" class="form-control" name="nome" placeholder="Digite seu nome" value="{{paci.nome}}">
         </div>
-        <div class="form-control">
-            <label for="cpf">cpf:</label>
-            <input type="text" name="cpf" placeholder="Digite seu cpf" value="{{paci.cpf}}">
+        <div class="form-group">
+          <label for="cpf">cpf:</label>
+          <input type="text" class="form-control" name="cpf" placeholder="Digite seu cpf" value="{{paci.cpf}}">
         </div>
 
-         <div class="form-control">
-            <label for="idade">idade:</label>
-            <input type="number" name="idade" placeholder="Digite a sua idade" value="{{paci.idade}}">
+        <div class="form-group">
+          <label for="idade">idade:</label>
+          <input type="number" name="idade" class="form-control" placeholder="Digite a sua idade"
+            value="{{paci.idade}}">
         </div>
-         <div class="form-control">
-            <label for="endereco">endereco:</label>
-            <input type="text" name="endereco" placeholder="Digite seu endereço" value="{{paci.endereco}}">
+        <div class="form-group">
+          <label for="endereco">endereco:</label>
+          <input type="text" class="form-control" class="form-control" name="endereco" placeholder="Digite seu endereço"
+            value="{{paci.endereco}}">
         </div>
-    
-        <input type="submit" value="Editar">
-    </form>
+
+        <input type="submit" class="m-3 btn btn-primary mx-3" value="Editar">
+      </form>
+    </div>
+  </div>
+</div>

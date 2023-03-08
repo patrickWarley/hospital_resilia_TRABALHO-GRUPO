@@ -1,46 +1,45 @@
 {{> navbar}}
-<h1>Lista de consultas</h1>
-    <a href="/consulta/prod">Clique Aqui</a>
+<div class="container page-margin-top mb-5">
+  <div class="row">
+    <div class="col-2">{{> navConsulta}}</div>
+    <div class="col-10">
+      <h1 class="m-3">Cadastro da Consulta</h1>
+      <hr>
+      <div class="container">
+        <form action="/consulta/prod/insertprod" method="POST">
+          <input type="hidden" name="id_consulta" id="id_consulta">
 
-<h1>Cadastro da Consulta</h1>
-    <hr>
-    <form action="/consulta/prod/insertprod" method="POST">
-        
-        <div class="form-control">
-            <input type="hidden" name="id_consulta" id="id_consulta">
-            <label for="id_consulta">Id da Consulta: Cadastro Automático</label>
-            <!--<input type="number" name="id_consulta" placeholder="não digite aqui">-->
-        </div>
-
-        <div class="form-control">
+          <div class="form-group">
             <label for="crm">CRM:</label>
-            <input type="number" name="crm" placeholder="Digite aqui o seu CRM">
-        </div>
-        <div class="form-control">
+            <input class="form-control" type="number" name="crm" placeholder="Digite aqui o seu CRM">
+          </div>
+          <div class="form-group">
             <label for="especialidade">Especialidade:</label>
-            <input type="text" name="especialidade" placeholder="Digite a sua especialidade">
-        </div>
-        <div class="form-control">
+            <input class="form-control" type="text" name="especialidade" placeholder="Digite a sua especialidade">
+          </div>
+          <div class="form-group">
             <label for="cpf_cliente">CPF:</label>
-            <input type="text" name="cpf_cliente" placeholder="Digite o cpf do paciente">
-        </div>
-        <div class="form-control">
+            <input type="text" class="form-control" name="cpf_cliente" placeholder="Digite o cpf do paciente">
+          </div>
+          <div class="form-group">
             <label for="data">Data da consulta:</label>
-            <input type="date" name="data" placeholder="">
-        </div>
-        <div class="form-control">
+            <input type="date" class="form-control" name="data" placeholder="">
+          </div>
+          <div class="form-group">
             <label for="hora">Hora da consulta:</label>
-            <input type="time" name="hora" placeholder="">
-        </div>
-        <div class="form-control">
+            <input type="time" class="form-control" name="hora" placeholder="">
+          </div>
+          <div class="form-group">
             <label for="motivo_procura">Motivo da Procura:</label>
-            <textarea type="text" name="motivo_procura" placeholder=""></textarea>
-        </div>
-        <div class="form-control">
+            <textarea type="text" class="form-control" name="motivo_procura" placeholder=""></textarea>
+          </div>
+          <div class="form-group">
             <label for="observacao_medico">Observações:</label>
-            <textarea type="text" name="observacao_medico" placeholder=""></textarea>
-        </div>
-        
-    
-        <input type="submit" value="Cadastrar">
-    </form>
+            <textarea type="text" class="form-control" name="observacao_medico" placeholder=""></textarea>
+          </div>
+          <input type="submit" class="btn btn-primary px-3 mt-2" value="Cadastrar">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

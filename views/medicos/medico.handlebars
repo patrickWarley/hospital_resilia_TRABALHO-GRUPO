@@ -1,12 +1,21 @@
+{{> navbar}}
+<div class="container page-margin-top">
+  <div class="row">
+    <div class="col-2">{{> navMedicos}}</div>
+    <div class="col-10">
+      <h1 class="m-3">Medico</h1>
 
-
-<h1>Medico</h1>
-      
-         
-<h1> {{listarMed.nome}} </h1>
-
-<p>Este item tem {{listarMed.crm}} crm {{listarMed.especialidade}} especialidade {{listarMed.telefone}} telefone {{listarMed.endereco}} endereço</p>
-
-<a href="/medicos/med/edit/{{listarMed.id}}">Editar</a>
-<a href="/medicos/med/remove/{{listarMed.id}}" >Excluir</a>
-
+      <div class="m-4 tex-center">
+        <h1> {{listarMed.nome}} </h1>
+        <p>CRM: {{listarMed.crm}}</p>
+        <p>Especialidade: {{listarMed.especialidade}}</p>
+        <p>Telefone: {{listarMed.telefone}}</p>
+        <p>Endereço: {{listarMed.endereco}}</p>
+        <div>
+          <a href="/medicos/med/edit/{{listarMed.id}}">Editar</a>
+          <a href="/medicos/med/remove/{{listarMed.id}}">Excluir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

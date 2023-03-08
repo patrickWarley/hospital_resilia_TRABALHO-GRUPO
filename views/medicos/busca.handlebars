@@ -1,10 +1,16 @@
+{{> navbar}}
+<div class="container page-margin-top">
+  <div class="row">
+    <div class="col-2">{{> navMedicos}}</div>
+    <div class="col-10">
+      <h1 class="mt-5">Buscar medicos</h1>
+      <hr>
+      <form action="/medicos/busc/" method="post">
 
+        <input class="form-control" type="text" name="id" id="id" placeholder="id">
 
-<h1>Cadastro de Pacientes</h1>
-    <hr>
-    <form action="/medicos/busc/" method="post">
-        
-            <input type="text" name="id" id="id" placeholder="id">
-              
-        <input type="submit" value="Buscar">
-    </form>
+        <input type="submit" class="btn btn-primary" value="Buscar">
+      </form>
+    </div>
+  </div>
+</div>
