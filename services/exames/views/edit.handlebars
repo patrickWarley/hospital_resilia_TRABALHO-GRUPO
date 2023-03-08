@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">HGRJ</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"> Cadastro <span class="sr-only">(página atual)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/busca">Busca pelo CPF</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-link disabled" href="/ex">Exames</a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+
+
+
+<h1>Editar exame</h1>
+    <hr>
+    <form action="/ex/updateex" method="POST">
+
+        <div class="form-control">
+            <input type="hidden" name="cpf" id="cpf" value="{{ex.cpf}}">
+
+            <label for="nome_paciente">Nome:</label>
+            <input type="text" name="nome_paciente" placeholder="Digite o nome do paciente" value="{{ex.nome_paciente}}">
+        </div>
+
+        <div class="form-control">
+            <label for="descricao">Descrição:</label>
+            <input type="text" name="descricao" placeholder="Digite a descrição do exame" value="{{ex.descricao}}">
+        </div>
+
+        <div class="form-control">
+            <label for="crm">CRM:</label>
+            <input type="number" name="crm" placeholder="Digite o CRM do médico" value="{{ex.crm}}">
+        </div>
+    
+        <input type="submit" value="Editar">
+    </form>
