@@ -1,0 +1,32 @@
+{{> navbar}}
+<div class="container page-margin-top">
+  <div class="row">
+    <div class="col-2">{{> navExames}}</div>
+    <div class="col-10">
+      <h1>Editar exame</h1>
+      <hr>
+      <form action="/exames/ex/updateex" method="POST">
+
+        <div class="form-control">
+          <input type="hidden" name="cpf" id="cpf" value="{{ex.cpf}}">
+
+          <label for="nome_paciente">Nome:</label>
+          <input type="text" name="nome_paciente" placeholder="Digite o nome do paciente" value="{{ex.nome_paciente}}">
+        </div>
+
+        <div class="form-control">
+          <label for="descricao">Descrição:</label>
+          <input type="text" name="descricao" placeholder="Digite a descrição do exame" value="{{ex.descricao}}">
+        </div>
+
+        <div class="form-control">
+          <label for="crm">CRM:</label>
+          <input type="number" name="crm" placeholder="Digite o CRM do médico" value="{{ex.crm}}">
+        </div>
+
+        <input type="submit" value="Editar">
+      </form>
+
+    </div>
+  </div>
+</div>

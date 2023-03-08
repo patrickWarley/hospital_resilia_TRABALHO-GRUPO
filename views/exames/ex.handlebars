@@ -1,0 +1,19 @@
+{{> navbar}}
+<div class="container page-margin-top">
+  <div class="row">
+    <div class="col-2">{{> navExames}}</div>
+    <div class="col-10">
+      <h1>Exames cadastrados</h1>
+
+      <div class="list-group">
+        {{#each listar}}
+
+        <a href="/exames/ex/{{this.cpf}}" class="list-group-item list-group-item-action"> {{nome_paciente}} - CPF:
+          {{cpf}} <br>
+        </a>
+
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

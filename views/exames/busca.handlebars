@@ -1,0 +1,16 @@
+{{> navbar}}
+<div class="container page-margin-top mb-5">
+  <div class="row">
+    <div class="col-2">{{> navExames}}</div>
+    <div class="col-10">
+      <h1>Busca de exames pelo CPF do paciente</h1>
+      <hr>
+      <form action="/exames/busc/" method="post">
+
+        <input type="text" name="cpf" id="cpf" placeholder="Digite o CPF do paciente" class="form-control">
+
+        <input type="submit" value="Buscar" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+</div>

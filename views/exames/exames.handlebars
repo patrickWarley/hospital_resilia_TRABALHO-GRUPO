@@ -1,0 +1,33 @@
+{{> navbar}}
+<div class="container page-margin-top">
+  <div class="row">
+    <div class="col-2">{{> navExames}}</div>
+    <div class="col-10">
+      <h1>Informações do exame</h1>
+
+      <div class="list-group">
+        <div class="list-group-item list-group-item-action flex-column align-items-start active">
+
+          <div class="d-flex w-100 justify-content-between">
+
+            <h5 class="mb-1">{{listarex.nome_paciente}}</h5>
+
+          </div>
+
+          <p class="mb-1">CPF: {{listarex.cpf}}</p>
+          <p class="mb-1">Descrição: {{listarex.descricao}}</p>
+          <p class="mb-1">CRM: {{listarex.crm}}</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="btn-group" role="group" aria-label="Exemplo básico">
+        <a href="/exames/ex/edit/{{listarex.cpf}}"><button type="button" class="btn btn-secondary">Editar</button></a>
+        <a href="/exames/ex/remove/{{listarex.cpf}}"><button type="button"
+            class="btn btn-secondary">Excluir</button></a>
+      </div>
+    </div>
+  </div>
+</div>

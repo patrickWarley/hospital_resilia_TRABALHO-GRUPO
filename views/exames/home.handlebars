@@ -1,0 +1,35 @@
+{{> navbar}}
+<div class="container page-margin-top">
+  <div class="row">
+    <div class="col-2">{{> navExames}}</div>
+    <div class="col-10">
+      <h1>Cadastro de Exames</h1>
+
+      <hr>
+      <form action="/exames/ex/insertex" method="post">
+
+        <div class="form-group">
+          <label for="cpf">CPF:</label>
+          <input type="text" name="cpf" class="form-control" placeholder="Digite o CPF do paciente">
+        </div>
+
+        <div class="form-group">
+          <label for="nome_paciente">Nome:</label>
+          <input type="text" name="nome_paciente" class="form-control" placeholder="Digite o nome do paciente">
+        </div>
+
+        <div class="form-group">
+          <label for="descricao">Descrição:</label>
+          <input type="text" name="descricao" class="form-control" placeholder="Descrição do exame">
+        </div>
+
+        <div class="form-group">
+          <label for="crm">CRM:</label>
+          <input type="text" name="crm" class="form-control" placeholder="Digite o CRM do médico">
+        </div>
+
+        <input type="submit" value="Cadastrar" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+</div>
